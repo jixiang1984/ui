@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+     <link href="css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery-1.6.2.min.js"></script>
+    <script src="js/jquery-ui-1.8.16.custom.min.js" ></script>
+    <style type="text/css">
+	body
+  {
+	 background-color:#CCF;
+  }
+ 
+	
+	#header
+	{
+		width:100%;
+		height:50px;
+		background:#EEE;
+	   -moz-border-radius: 20px;
+	   -webkit-border-radius: 20px;
+		
+	}
+	#logo
+	{
+		position:absolute;		
+		width:100px;
+		height:50px;
+		background-color:#FF6;
+		-moz-border-radius: 20px;
+	   -webkit-border-radius: 20px;
+		
+	}
+	
+	#importfile
+	{
+		position:relative;
+		width:300px;
+		float:right;
+	    height:50px;
+		background-color:#FF6;
+		z-index:10;
+		-moz-border-radius: 20px;
+	    -webkit-border-radius: 20px;
+		
+		
+		
+	}
+	#navigation
+	{
+		position:absolute;
+		width:99%;
+		height:30px;
+		top:65px;
+		
+		background-color:#FF6;
+		-moz-border-radius: 20px;
+	    -webkit-border-radius: 20px;
+		
+	}
+	
+	#EditArea
+	{
+		position:absolute;
+		width:365px;
+		height:300px;
+		background:#EEE;
+		top:100px;
+		-moz-border-radius: 20px;
+	    -webkit-border-radius: 20px;
+		border-color:#000;
+		border-style:dashed;
+		
+		
+	}
+	#ClassMapArea
+	{
+		position:absolute;
+		width:650px;
+		height:700px;
+	    left:415px;
+		background-color:#EEE;
+		top:100px;
+		z-index:-1000;
+		-moz-border-radius: 20px;
+	    -webkit-border-radius: 20px;
+
+		
+	}
+	#ViewArea
+	{
+		position:absolute;
+		width:240px;
+		height:400px;
+		right:10px;
+		background:#EEE;
+		top:100px;
+		-moz-border-radius: 20px;
+	    -webkit-border-radius: 20px;
+		
+	}
+	#file
+	{
+		position:absolute;
+		width:80px;
+		height:40px;
+		background-color:#AAA;
+		top:5px;
+		right:20px;
+		-moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+		
+		
+	 }
+	
+	#file:hover
+	{
+		background-color:#DDD;
+		
+	}
+	
+	#horiticalslider
+	{ 
+		height:30px;
+		background-color:#CF0;
+		
+		-moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+		border-color:#000;
+		
+		
+	}
+	
+	#veriticalslider
+	{
+		width:30px;
+		height:300px;
+		background-color:#CF0;
+		top:0px;
+		-moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+		border-color:#000;
+		left:370px;
+		
+		
+		
+	}
+	
+	.img1
+{
+	position:absolute;
+	bottom:100px;
+	left:250px;
+	z-index:1000;
+	filter:Shadow(Color=gray,Direction=135);	
+	
+	
+}
+
+.img2
+{
+	position:absolute;
+	bottom:300px;
+	left:240px;
+	opacity:0.8;
+	z-index:10;	
+	
+}
+.img3
+{
+	position:absolute;
+	bottom:500px;
+	left:240px;
+	opacity:0.9;
+	z-index:20;
+}
+.img4
+{
+	position:absolute;
+	bottom:650px;
+	left:240px;
+	background:none；
+	opacity:0.2;
+	z-index:40;
+	
+	
+	
+}
+.img1:hover
+{
+	
+	background-color: #940033;
+	color: #ddd;
+	border: none;
+
+	
+	
+}
+.img2:hover
+{
+	
+	background-color: #940033;
+	color: #ddd;
+	border: none;
+	
+
+	
+	
+}
+.img3:hover
+{
+	
+	background-color: #940033;
+	color: #ddd;
+	border: none;
+
+	
+	
+}
+.img4:hover
+{
+	
+	background-color: #940033;
+	color: #ddd;
+	border: none;
+
+	
+	
+}
+	
+	
+	</style>
+    
+    
+    
+    
+    
+    <script>
+	$(function() {
+		$( "#navigation" ).slider();
+	});
+	
+	$(function() {
+		$( "#veriticalslider" ).slider( 
+		
+		{ orientation: 'vertical'}
+		
+		
+		
+		);
+	});
+	
+	$(function() {
+		$( "#horiticalslider" ).slider();
+	});
+	
+	$(function() {
+		$( "#accordion" ).accordion();
+	});
+	
+	
+    
+
+	</script>
+    <script type="text/javascript">
+ 
+ function draw(){
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+	context.beginPath(); // begin custom shape
+    context.moveTo(0, 600);
+	context.lineTo(200, 0);
+   
+	context.lineTo(300, 0);	
+	
+		
+	
+	context.lineTo(600, 600);  
+    context.closePath(); // complete custom shape
+    
+	var grd = context.createLinearGradient(600, 0, 600, 600);
+    grd.addColorStop(0, "#EEE"); // light blue
+    grd.addColorStop(1, "#000"); // dark blue
+    context.fillStyle = grd;
+    context.fill();
+ 
+    context.lineWidth = 5;
+    context.strokeStyle = "#EEE";
+    context.stroke();
+	context.beginPath(); // begin custom shape
+    context.moveTo(100, 600);	
+	context.lineTo(250, 0);
+    context.closePath(); // complete custom shape  
+	var grd = context.createLinearGradient(600, 0, 600, 600);
+    grd.addColorStop(0, "#EEE"); // light blue
+    grd.addColorStop(1, "#000"); // dark blue
+    context.fillStyle = grd;
+    context.fill();
+ 
+    context.lineWidth = 5;
+    context.strokeStyle = "#EEE";
+    context.stroke();
+	
+	context.beginPath(); // begin custom shape
+    context.moveTo(260, 0);	
+	context.lineTo(450, 600);
+    context.closePath(); // complete custom shape  
+	var grd = context.createLinearGradient(600, 0, 600, 600);
+    grd.addColorStop(0, "#EEE"); // light blue
+    grd.addColorStop(1, "#000"); // dark blue
+    context.fillStyle = grd;
+    context.fill();
+ 
+    context.lineWidth = 5;
+    context.strokeStyle = "#EEE";
+    context.stroke();
+	
+	
+	for(var i=8;i>0;i--)
+	{
+	
+    context.moveTo(i*5,i*100);	
+	context.lineTo(i*600,i*101);
+    context.strokeStyle = "#EEE";
+    context.stroke();
+		
+		
+	}
+	
+	
+	
+};
+	
+	
+	</script>
+
+    
+  </head>
+  <body onload="draw()">
+  
+    <div id="header">
+    <div id ="logo">LOGO</div>
+    <div id="importfile">
+    <form action="#">
+      <input type="button" name="file" id="file"  value="Your Project"/>	
+	</form>
+    </div>
+    </div>
+    <div id='navigation'>
+    </div>
+    <div id="EditArea">
+    <div id="veriticalslider"></div>
+    <div id="horiticalslider"></div>
+    
+    
+    </div>
+    <div id="ClassMapArea">
+    <canvas id="canvas" width="600" height="600" onload="draw()">
+    
+   
+   
+   </canvas>  
+<div class="img1"></div>
+ 
+  <div class="img2"></div>
+<div class="img3"> 
+  <img  src="images/imgres.jpeg"alt="Angry face" width="40" height="40" /> 
+ </div>
+<div class="img4"> 
+  <img  src="images/imgres.jpeg"alt="Angry face" width="20" height="20" /> 
+ </div>
+<span class="img1"><img  src="images/imgres.jpeg"alt="Angry face" width="60" height="60" /></span><span class="img2"><img  src="images/imgres.jpeg"alt="Angry face" width="50" height="50" /></span>
+    
+    
+    
+    </div>
+    
+    
+    
+    
+    <div id="ViewArea">
+    <div id="accordion">
+	<h3><a href="#">Inherence  View</a></h3>
+	<div>
+		<p>
+		Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+		ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+		amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+		odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+		</p>
+	</div>
+	<h3><a href="#">Global View</a></h3>
+	<div>
+		<p>
+		Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+		purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+		velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+		suscipit faucibus urna.
+		</p>
+	</div>
+	<h3><a href="#">Resource View</a></h3>
+	<div>
+		<p>
+		Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+		Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+		ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+		lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+		</p>
+		<ul>
+			<li>List item one</li>
+			<li>List item two</li>
+			<li>List item three</li>
+		</ul>
+	</div>
+	
+</div>
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+  
+  
+  </body>
+</html>
+  
